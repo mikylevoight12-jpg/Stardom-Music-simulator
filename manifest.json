@@ -1,0 +1,22 @@
+
+{
+  "short_name": "Stardom",
+  "name": "Stardom: Music Career Simulator",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3503/3503843.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3503/3503843.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "background_color": "#000000",
+  "display": "standalone",
+  "theme_color": "#D4AF37",
+  "description": "Climb the charts and build your music empire."
+}

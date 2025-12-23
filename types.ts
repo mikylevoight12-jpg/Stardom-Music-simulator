@@ -58,6 +58,7 @@ export interface Song {
   chartPosition?: number;
   featuredArtist?: string;
   isMusicVideo?: boolean;
+  isMastered?: boolean;
 }
 
 export interface Award {

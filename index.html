@@ -4,20 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Stardom: Gold Edition</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --safe-area-inset-bottom: env(safe-area-inset-bottom);
+            --safe-area-inset-top: env(safe-area-inset-top);
         }
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #000000;
             color: #ffffff;
-            /* Prevent bounce scrolling on iOS */
             overscroll-behavior-y: none;
             -webkit-tap-highlight-color: transparent;
+        }
+        .safe-top {
+            padding-top: var(--safe-area-inset-top);
         }
         .text-gold { color: #D4AF37; }
         .bg-gold { background-color: #D4AF37; }
@@ -48,12 +54,10 @@
             to { background-position: 200% center; }
         }
 
-        /* Platform specific fixes */
         .safe-pb {
             padding-bottom: calc(1rem + var(--safe-area-inset-bottom));
         }
         
-        /* Hide scrollbars but keep functionality */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -76,5 +80,12 @@
 </head>
 <body>
     <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW registration failed:', err));
+        });
+      }
+    </script>
 </body>
 </html>
